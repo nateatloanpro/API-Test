@@ -1,0 +1,1883 @@
+{
+	"info": {
+		"_postman_id": "67e515f7-857c-49eb-9b56-35e4e1319140",
+		"name": "Loans",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17303308"
+	},
+	"item": [
+		{
+			"name": "Get Full Loan Information",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$select",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$orderby",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "## General\n\nLike the `Customers` entity, the `Loans` entity holds a great amount of information. Here's what you need to know about `Loans`:\n\n- You can use an `$expand` token to view the information within any of the nested objects. Or, you can send the request directly to the object like the following:\n    - `{{URL}}/odata.svc/Loans(9118)/Collateral`\n- There are dozens of objects nested within the `Loans` entity.\n    \n\nFor more information on pulling loan information via the API, check out [API – Getting Loan Information](https://help.loanpro.io/article/hbz3x9gbiz-api-get-loan-information-redux).\n\n## Database\n\nFor information on Loans database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)\n- [Database – Loan Status Entity (loan_status_entity)](https://help.loanpro.io/article/5yybr09tzq-loan-status-entity-loan-status-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Loan Setup",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})/LoanSetup",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})",
+						"LoanSetup"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$select",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$orderby",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "## General\n\nThe `LoanSetup` object is nested within the `Loans` entity, and it holds loan information such as loan amount, interest rate, term, and more. Here's what you need to know about this request:\n\n- **The values in** `LoanSetup` **directly affect how a loan is calculated.**\n- Due to this, you cannot update these values if the loan is activated. (But you can pull this information whether the loan is activated or not.)\n    \n\nFor more information on this topic and examples of how it works within the UI, take a look at our [Setup Terms](https://help.loanpro.io/article/gdn9j7c0yc-setup-terms) article.\n\n## Database\n\nFor information on loan database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Loan Settings",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})/LoanSettings",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})",
+						"LoanSettings"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$select",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$orderby",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "## General\n\nThe `LoanSettings` object is nested within the `Loans` entity, and it holds information such as card fees, credit reporting configurations, loan dates, and more. Here's what you need to know about this request:\n\n- The values in `LoanSettings` **do not** affect how a loan is calculated, so they can be updated while the loan is active.\n    \n\nFor an example of how Loan Settings are used within the UI, take a look at our [Loan Settings](https://help.loanpro.io/article/mzo3lqur28-loan-settings) article.\n\n## Database\n\nFor information on loan settings database tables, see the following articles:\n\n- [Database – Loan Settings Entity (loan_settings_entity)](https://help.loanpro.io/article/7h1ufn1dkg-loan-settings-entity-loan-settings-entity)\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Preview Roll Payment",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})/Autopal.RollPayment({{RollPaymentAmount}},{{SolveMethod}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})",
+						"Autopal.RollPayment({{RollPaymentAmount}},{{SolveMethod}})"
+					]
+				},
+				"description": "`{{RollPaymentAmount}}` sets the desired payment amount.\n\n`{{SolveMethod}}` determines what type of value to solve for:\n\n- `loan.rollPayment.term`\n- `loan.rollPayment.termExact`\n- `loan.rollPayment.loanRate`\n- `loan.rollPayment.fee`\n- `loan.rollPaymentlease.term`\n- `loan.rollPaymentlease.termExact`\n- `loan.rollPaymentlease.loanRate`\n- `loan.rollPaymentlease.fee`\n    \n\n## General\n\nLoanPro's loan calculator offers a Roll Payment feature so you can test some basic loan terms. Here's what you need to know about this request:\n\n- The roll payment feature will help solve payment equations by allowing you to choose a variable to solve for.\n- You determine your solve parameters in the endpoint of this request.\n- Your loan will need to have its setup terms completed before the roll schedule feature will work.\n- This request does not save a roll payment configuration on the loan but instead simply provides a preview.\n    \n\nFor an example of how this feature works in the UI, take a look at our [Roll Payment](https://help.loanpro.io/article/eh3vtx0q0r-roll-payment) article.\n\n## Database\n\nFor information on loan database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Schedule Roll",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})/ScheduleRolls",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})",
+						"ScheduleRolls"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$select",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$orderby",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "## General\n\nA schedule roll allows lenders to change payment schedules in separate payment periods. For example, a lender may want to offer 5% interest on the first three periods of a loan, but then 15% for the remainder of the loan.\n\nFor an example of how schedule rolls work within the UI, take a look at our [Create a Schedule Roll](https://help.loanpro.io/article/5axin9rmf7-create-a-schedule-roll) article.\n\n## Database\n\nFor information on schedule roll database tables, see the following articles:\n\n- [Database – Loan Schedule Roll Entity (loan_schedule_roll_entity)](https://help.loanpro.io/article/05n79tbrt9-loan-schedule-roll-entity-loan-schedule-role-entity)\n- [Database – Schedule Roll Template (schedule_roll_template_entity)](https://help.loanpro.io/article/viqg7c62ef-schedule-roll-template-entity-schedule-roll-template)"
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Schedule Roll",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/Loans({{LoanID}})/Autopal.ResetRollSchedule(false)",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Loans({{LoanID}})",
+						"Autopal.ResetRollSchedule(false)"
+					]
+				},
+				"description": "## General\n\nA schedule roll allows lenders to change payment schedules in separate payment periods. For example, a lender may want to offer 5% interest on the first three periods of a loan, but then 15% for the remainder of the loan. Here's what you need to know about this request:\n\n- Schedule rolls can only be made on accounts that are not activated.\n- This request removes a schedule roll and resets a loan to its original loan terms.\n    \n\n> 👆 Pay special attention to the endpoint of this request.\n> \n> This request does **not** use OData, so it's not included in the endpoint like most other LMS requests.\n\nFor an example of how schedule roll templates work within the UI, take a look at our [Roll Schedule](https://help.loanpro.io/article/7linipza7a-roll-schedule-templates) article.\n\n## Database\n\nFor information on schedule roll database tables, see the following articles:\n\n- [Database – Loan Schedule Roll Entity (loan_schedule_roll_entity)](https://help.loanpro.io/article/05n79tbrt9-loan-schedule-roll-entity-loan-schedule-role-entity)\n- [Database – Schedule Roll Template (schedule_roll_template_entity)](https://help.loanpro.io/article/viqg7c62ef-schedule-roll-template-entity-schedule-roll-template)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Loan Modification",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})/LoanModifications",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})",
+						"LoanModifications"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$select",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$orderby",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "## General\n\nA Loan Modification, like the name implies, is a change made to the settings of a loan. Loan Modifications are more than simple changes to a loan's terms, however. Here's what you need to know about modifications:\n\n- Modifications are used for loans that have already been activated. Thus, modification requests will not work for loans that are inactive.\n- A loan modification is essentially a new loan that is placed on top of an old loan. The history and transactions from the old loan are present, but the terms of the new loan take precedence.\n    \n\nFor an example on how Loan Modifications work within the UI, take a look at our [Account Modification](https://help.loanpro.io/article/8v8jvyqdl3-account-modification) article.\n\n## Database\n\nFor information on Loan Modification database tables, see the following articles:\n\n- [Database – Loan Modification Info (loan_modification_entity)](https://help.loanpro.io/article/qolpvrfegg-loan-modification-entity-loan-modification-info)\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Collateral",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})/Collateral",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})",
+						"Collateral"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$select",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$orderby",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "## General\n\nMany lenders use collateral to secure their loans. Here's what you need to know about collateral:\n\n- Up to 50 items can be collateralized on a single loan. Loans can also have no collateral.\n- The `Collateral` object is nested within the `Loans` entity.\n    \n\nFor an example of how collateral works within the UI, take a look at our [Add Collateral Information](https://help.loanpro.io/article/fvdysvf23t-add-collateral-information) article.\n\n## Database\n\nFor information on collateral database tables, see the following articles:\n\n- [Database – Collateral Entity (collateral_entity)](https://help.loanpro.io/article/5u1kgajst8-collateral-entity-collateral-entity)\n- [Database – Collateral Field Entity (collateral_field_entity)](https://help.loanpro.io/article/bu7c7bau49-collateral-field-entity-collateral-field-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Escrow",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})?$expand=EscrowSubsetOptions",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "EscrowSubsetOptions"
+						},
+						{
+							"key": "$select",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "$orderby",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Print Physical Check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/Loans({{LoanID}})/funding-transactions/GetPrinkCheck({{CheckID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Loans({{LoanID}})",
+						"funding-transactions",
+						"GetPrinkCheck({{CheckID}})"
+					]
+				},
+				"description": "## General\n\nOur Enhanced Funding tool provides users with the option to fund a loan via physical checks. Those checks can be printed, and they are often used by those who operate in physical, brick-and-mortar locations. Here's what you need to know about printing physical checks:\n\n- Checks are generated as a PDF.\n- Before a check can be printed, it needs to be generated through a physical check [Enhanced Funding request](https://loanpro.readme.io/reference/new-funding). (And pay special attention to the first ID in the response—that's the check ID.)\n- **As a security measure, each check can only be generated once.** After it has been generated, it can't be printed again.\n    \n\nFor more information on the process of generating and printing physical checks within the LoanPro UI, see our [Funding with a Physical Check](https://help.loanpro.io/article/rf3mq49jgc-funding-with-a-physical-check) article.\n\n> 👆 Pay special attention to the endpoint of this request.\n> \n> This request does **not** use OData, so it's not included in the endpoint like most other LMS requests.\n\n## Database\n\nFor information on funding database tables, see the following articles:\n\n- [Database – Enhanced Funding (loan_funding_transaction_entity)](https://help.loanpro.io/article/py0rii8qmn-database-loan-funding-transaction-loan-funding-transaction-entity)\n- [Database – Loan Funding (loan_funding_entity)](https://help.loanpro.io/article/931imfpqyp-loan-funding-entity-loan-funding)\n- [Database – Funding Category (funding_category_entity)](https://help.loanpro.io/article/sp334a3r88-funding-category-entity-funding-category)"
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Loan - Full Payload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"displayId\": \"New Loan Display ID\",\r\n    \"LoanSetup\": {\r\n        \"loanAmount\": \"10000.00\",\r\n        \"discount\": \"500.00\",\r\n        \"underwriting\": \"0.00\",\r\n        \"loanRate\": \"12.0212\",\r\n        \"loanRateType\": \"loan.rateType.annually\",\r\n        \"loanTerm\": \"36\",\r\n        \"contractDate\": \"2015-05-07\",\r\n        \"firstPaymentDate\": \"2015-05-08\",\r\n        \"amountDown\": \"0.00\",\r\n        \"reserve\": \"5.00\",\r\n        \"salesPrice\": \"12000\",\r\n        \"gap\": \"1120.\",\r\n        \"warranty\": \"2500\",\r\n        \"dealerProfit\": \"1000\",\r\n        \"taxes\": \"125.25\",\r\n        \"creditLimit\": \"15500\",\r\n        \"loanClass\": \"loan.class.carLoan\",\r\n        \"loanType\": \"loan.type.installment\",\r\n        \"scheduleTemplate\": \"0\",\r\n        \"discountSplit\": \"1\",\r\n        \"paymentFrequency\": \"loan.frequency.monthly\",\r\n        \"calcType\": \"loan.calcType.simpleInterest\",\r\n        \"daysInYear\": \"loan.daysInYear.frequency\",\r\n        \"interestApplication\": \"loan.interestApplication.betweenTransactions\",\r\n        \"begEnd\": \"loan.begend.end\",\r\n        \"firstPeriodDays\": \"loan.firstPeriodDays.frequency\",\r\n        \"firstDayInterest\": \"loan.firstdayinterest.yes\",\r\n        \"discountCalc\": \"loan.discountCalc.straightLine\",\r\n        \"diyAlt\": \"loan.diyAlt.no\",\r\n        \"daysInPeriod\": \"loan.daysinperiod.24\",\r\n        \"roundDecimals\": \"5\",\r\n        \"lastAsFinal\": \"loan.lastasfinal.no\",\r\n        \"curtailPercentBase\": \"loan.curtailpercentbase.loanAmount\",\r\n        \"nddCalc\": \"loan.nddCalc.standard\",\r\n        \"endInterest\": \"loan.endInterest.no\",\r\n        \"feesPaidBy\": \"loan.feesPaidBy.date\",\r\n        \"graceDays\": \"5\",\r\n        \"lateFeeType\": \"loan.lateFee.3\",\r\n        \"lateFeeAmount\": \"30.00\",\r\n        \"lateFeePercent\": \"10.00\",\r\n        \"lateFeeCalc\": \"loan.lateFeeCalc.standard\",\r\n        \"lateFeePercentBase\": \"loan.latefeepercentbase.regular\",\r\n        \"paymentDateApp\": \"loan.pmtdateapp.actual\",\r\n        \"maxInterestAmount\": \"0\",\r\n        \"financeChargeAsMIA\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans()",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans()"
+					]
+				},
+				"description": "## General\n\nLoans can be configured in an innumerable amount of ways. However, not every field within the payload of this request is required, and some are more important than others. Here's what else you need to know about this request:\n\n- This request simply creates a new loan without linking a customer. Linking a customer to a loan requires a [Link Customer to Loan](https://loanpro.readme.io/reference/link-customer-to-loan) request.\n- Many users tend to want to simultaneously link a customer when they create a new loan within one request. This is possible, and we have a payload example below. If this is the case for you, **you will need to use an existing customer or create a new customer beforehand**. Here's why:  \n      \n    When you create a new loan and link a customer all within the same request, you use the customer's ID in the payload and send the request through the `Loans` endpoint. Therefore, you will need a valid customer ID since you can't create a customer via the `Loans` endpoint.\n    \n\nFor an example of how creating a loan works within the UI, take a look at our [Create New Loan](https://help.loanpro.io/article/umbe9gtme8-create-new-loan-standard-method) article.\n\n## Database\n\nFor information on loan database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)\n- [Database – Loan Settings Entity (loan_settings_entity)](https://help.loanpro.io/article/7h1ufn1dkg-loan-settings-entity-loan-settings-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Loan - Minimum Payload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// This payload uses the tenant Loan Defaults to input the remaining loan information.\r\n\r\n{\r\n  \"displayId\": \"New Loan Display ID\",\r\n  \"LoanSetup\": {\r\n    \"loanAmount\": \"10000.00\",\r\n    \"loanRate\": \"4.5\",\r\n    \"loanClass\": \"loan.class.carLoan\",\r\n    \"loanType\": \"loan.type.installment\",\r\n    \"contractDate\": \"2022-05-07\",\r\n    \"firstPaymentDate\": \"2022-05-14\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans()",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans()"
+					]
+				},
+				"description": "## General\n\nLoans can be configured in an innumerable amount of ways. However, not every field within the payload of this request is required, and some are more important than others. Here's what else you need to know about this request:\n\n- This request simply creates a new loan without linking a customer. Linking a customer to a loan requires a [Link Customer to Loan](https://loanpro.readme.io/reference/link-customer-to-loan) request.\n- Many users tend to want to simultaneously link a customer when they create a new loan within one request. This is possible, and we have a payload example below. If this is the case for you, **you will need to use an existing customer or create a new customer beforehand**. Here's why:  \n      \n    When you create a new loan and link a customer all within the same request, you use the customer's ID in the payload and send the request through the `Loans` endpoint. Therefore, you will need a valid customer ID since you can't create a customer via the `Loans` endpoint.\n    \n\nFor an example of how creating a loan works within the UI, take a look at our [Create New Loan](https://help.loanpro.io/article/umbe9gtme8-create-new-loan-standard-method) article.\n\n## Database\n\nFor information on loan database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)\n- [Database – Loan Settings Entity (loan_settings_entity)](https://help.loanpro.io/article/7h1ufn1dkg-loan-settings-entity-loan-settings-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Loan & Link Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// This payload uses the tenant Loan Defaults to input the remaining loan information.\r\n\r\n{\r\n    \"displayId\": \"New Loan Display ID\",\r\n    \"LoanSetup\": {\r\n        \"loanAmount\": \"10000.00\",\r\n        \"loanRate\": \"4.5\",\r\n        \"loanClass\": \"loan.class.carLoan\",\r\n        \"loanType\": \"loan.type.installment\",\r\n        \"contractDate\": \"2022-05-07\",\r\n        \"firstPaymentDate\": \"2022-05-14\"\r\n    },\r\n    \"Customers\": { // 👈 This object will link a customer to the loan.\r\n        \"results\": [\r\n            {\r\n                \"__id\": {{CustomerID}},\r\n                \"__setLoanRole\": \"loan.customerRole.primary\"\r\n            }\r\n        ]\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans()",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans()"
+					]
+				},
+				"description": "## General\n\nLoans can be configured in an innumerable amount of ways. However, not every field within the payload of this request is required, and some are more important than others. Here's what else you need to know about this request:\n\n- This request simply creates a new loan without linking a customer. Linking a customer to a loan requires a [Link Customer to Loan](https://loanpro.readme.io/reference/link-customer-to-loan) request.\n- Many users tend to want to simultaneously link a customer when they create a new loan within one request. This is possible, and we have a payload example below. If this is the case for you, **you will need to use an existing customer or create a new customer beforehand**. Here's why:  \n      \n    When you create a new loan and link a customer all within the same request, you use the customer's ID in the payload and send the request through the `Loans` endpoint. Therefore, you will need a valid customer ID since you can't create a customer via the `Loans` endpoint.\n    \n\nFor an example of how creating a loan works within the UI, take a look at our [Create New Loan](https://help.loanpro.io/article/umbe9gtme8-create-new-loan-standard-method) article.\n\n## Database\n\nFor information on loan database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)\n- [Database – Loan Settings Entity (loan_settings_entity)](https://help.loanpro.io/article/7h1ufn1dkg-loan-settings-entity-loan-settings-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Activate a Loan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"__ignoreWarnings\": true\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/Loans({{LoanID}})/AutoPal.Activate()",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Loans({{LoanID}})",
+						"AutoPal.Activate()"
+					]
+				},
+				"description": "## General\n\nThis request allows you to activate a created loan. Here's what you need to know about this request:\n\n- Activating a loan is a separate distinction from an active loan status. For more information on the distinction, take a look at our [article](https://help.loanpro.io/article/11onffzrx8-activate-loan-vs-active-status-loan) on the subject.\n- By default, newly created loans are not activated.\n- Loans can be [deactivated](https://help.loanpro.io/article/t6tnagia14-api-activate-a-loan#inactivate_loan), if needed.\n- **If the loan used in your request is already activated, the response will come back as \"false\" instead of \"true\".**\n- This is a POST request, but a payload is not required.\n    \n\nFor more information on this request, read our [API – Activating a Loan](https://help.loanpro.io/article/t6tnagia14-api-activate-a-loan) article on our help site.\n\n> 👆 Pay special attention to the endpoint of this request.\n> \n> This request does **not** use OData, so it's not included in the endpoint like most other LMS requests.\n\n## Database\n\nFor information on Loans database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)\n- [Database – Loan Status Entity (loan_status_entity)](https://help.loanpro.io/article/5yybr09tzq-loan-status-entity-loan-status-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Set Roll Payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": \"195.91\",\r\n    \"method\": \"loan.rollPayment.loanRate\",\r\n    \"amountIncludes\": {\r\n        \"escrow\": [\r\n            2\r\n        ]\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/Loans({{LoanID}})/AutoPal.RollPayment()",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Loans({{LoanID}})",
+						"AutoPal.RollPayment()"
+					]
+				},
+				"description": "## General\n\nLoanPro's loan calculator offers a Roll Payment feature so you can test some basic loan terms. Here's what you need to know about this request:\n\n- The roll payment feature will help solve payment equations by allowing you to choose a variable to solve for.\n- You determine your solve parameters in the endpoint of this request.\n- Your loan will need to be inactivated to use the roll payment feature.\n- Your loan will need to have its setup terms completed before the roll schedule feature will work.\n    \n\nFor an example of how this feature works in the UI, take a look at our [Roll Payment](https://help.loanpro.io/article/eh3vtx0q0r-roll-payment) article.\n\n> 👆 Pay special attention to the endpoint of this request.\n> \n> This request does **not** use OData, so it's not included in the endpoint like most other LMS requests.\n\n## Database\n\nFor information on loan database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Target APR Using Interest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"apr\": \"24.87\",\r\n    \"solve\": \"loan.rollAPR.loanRate\"\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/Loans({{LoanID}})/RollAPR()",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Loans({{LoanID}})",
+						"RollAPR()"
+					]
+				},
+				"description": "## General\n\nLoanPro features a targeting tool that allows you to adjust interest to reach a specific APR. Here's what you need to know about this request:\n\n- The targeting tool can only be used on accounts that are not activated.\n- APR is calculated via [a number of factors](https://help.loanpro.io/article/x2a3qxeg2z-apr), but this tool will adjust the loan's interest rate to reach the desired APR.\n    \n\nFor an example of how targeting APR works within the UI, take a look at our [APR Targeting](https://help.loanpro.io/article/c2eye65amq-apr-targeting) article.\n\n> 👆 Pay special attention to the endpoint of this request.\n> \n> This request does **not** use OData, so it's not included in the endpoint like most other LMS requests.\n\n## Database\n\nFor information on loan setup database tables, see the following articles:\n\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Target APR Using Escrow",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"apr\": \"24.87\",\r\n  \"solve\": 1\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/Loans({{LoanID}})/RollAPR()",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Loans({{LoanID}})",
+						"RollAPR()"
+					]
+				},
+				"description": "## General\n\nLoanPro features a targeting tool that allows you to adjust escrow to reach a specific APR. Here's what you need to know about this request:\n\n- APR is calculated via [a number of factors](https://help.loanpro.io/article/x2a3qxeg2z-apr), but this tool will adjust the loan's interest rate to reach the desired APR.\n- The targeting tool can only be used on accounts that are not activated.\n- To use this request, the loan must also have an Escrow Buckets configuration set on the loan. The ID of the bucket is used in the `solve` parameter.\n    \n\nFor more information regarding this request, see our [API – APR Targeting](https://help.loanpro.io/article/e9gvl6pini-api-targeted-apr) article on our help site.\n\nFor an example of how targeting APR works within the UI, take a look at our [APR Targeting](https://help.loanpro.io/article/c2eye65amq-apr-targeting) article.\n\n> 👆 Pay special attention to the endpoint of this request.\n> \n> This request does **not** use OData, so it's not included in the endpoint like most other LMS requests.\n\n## Database\n\nFor information on loan setup database tables, see the following articles:\n\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Escrow calculator (escrow_calculator_entity)](https://help.loanpro.io/article/el4r9yh3yt-escrow-calculator-entity-escrow-calculator)\n- [Database – Escrow Subset Entity (escrow_subset_entity)](https://help.loanpro.io/article/j8u6q7z1bg-escrow-subset-entity-escrow-subset-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Loan Modification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "See documentation tab --->",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "## General\n\nThis request is a bit different from our others listed here in our documentation. Instead of consisting on one request, the loan modification process requires **several** (pretty exciting, huh?). We'll explain the whole process and provide the requests you will need below. First, let's go over what loan modifications are.\n\nA Loan Modification, like the name implies, is a change made to the settings of a loan. Loan Modifications are more than simple changes to a loan's terms, however; here's what you need to know about creating Loan Modifications:\n\n- A Loan Modification is a complex change made in the middle of a loan's life; it's essentially a new loan that is placed on top of an old loan.\n- This will fully reset values such as Change Due Dates, Suspend/Resume Interest, Days Past Due, Amount Past Due.\n- Changing loan values that have no effect on the amortization schedule such as sales tax, dealer profit, amount down, custom fields, or due dates should be made in other ways.\n- A Loan Modification can only be made on an [activated loan](https://simnang.helpdocs.io/article/qsxo8jq7xm-activated-loans), and the terms of activated loans are locked in and only editable via modifications.\n- **Loan Modifications should be made only in specific circumstances.** Please read the following warning before proceeding with the steps below:\n    \n\n_\"DO YOU REALLY WANT TO MODIFY THIS LOAN? If you want to simply edit loan values that have no effect on the amortization schedule (such as sales tax, dealer profit, amount down, custom fields, etc), you should use the Additional Information tool instead of performing a modification. If you are specifically changing payment due dates or amounts, use the change due date tool or schedule roll feature in Setup Terms.  \n_\n\n_If you want to edit any other loan values, simply inactivate this loan, edit the values, and save and activate the loan. Using this tool will reset the loan as of the modification date—meaning, as of the date, it's like creating a new loan merged with the history on the loan prior to the modification. This will fully reset values such as Change Due Dates, Suspend/Resume Interest, Days Past Due, Amount Past Due, etc. Also, keep in mind that you have to reset any escrow adjustments to apply post modification, as those are also modification specific values.\"_\n\n## Step 1 - Transactions After Modification Date (Optional)\n\nYou may find it necessary to modify a loan previous to payments or other transactions, and you may want those transactions to apply after the proposed modification. There is an available endpoint that will show you which loan transactions apply after the proposed modification date. To see this information, send a the following endpoint:\n\n``` http\nGET https://loanpro.simnang.com/api/public/api/1/Loans({loanId})/Autopal.PreModTestLoan({modificationDate})\n\n```\n\nA successful response will look similar to the following:\n\n``` json\n{  \n   \"d\":{  \n      \"payments\":[  \n         {  \n            \"id\":\"2928\",\n            \"displayId\":\"5557\",\n            \"date\":\"2019-04-17\",\n            \"amount\":100,\n            \"info\":\"04/17/2019 Credit/Debit Card\"\n         }\n      ],\n      \"charges\":[],\n      \"advancements\":[],\n      \"credits\":[]\n   }\n}\n\n```\n\n## Step 2 - Modify the Loan\n\nTo create a loan modification, send the following request:\n\nMake sure to replace `{loanId}` with the ID of the loan you're modifying and `{modificationDate}` with the modification date you will use. The date should be formatted as `YYYY-MM-DD`. While not required, if you are opting to have transactions apply after the modification date, you should include a payload that looks something like this:\n\n``` http\nPOST https://loanpro.simnang.com/api/public/api/1/Loans({loanId})/Autopal.CreateModification({modificationDate})\n\n```\n\n``` json\n{\n    \"persistentTransactions\": {\n        \"payments\": [\n            \"2928\"\n        ]\n    },\n    \"modificationDate\": \"2018-12-28\"\n}\n\n```\n\nThe `persistentTransactions` object should contain an array for each transaction type. The array should contain IDs as strings separated by commas (e.g. \"1\",\"2\",\"3\").\n\n## Step 3 - Get Loan Setup ID\n\nCreating a modification will create a new `loanSetup` entity and assign it to the loan. To update the new loan setup, you will need the ID. To receive the ID, send a GET request to the following endpoint:\n\n``` http\nGET https://loanpro.simnang.com/api/public/api/1/odata.svc/Loans({loanId})/LoanSetup\n\n```\n\nBe sure to replace `{loanId}` with the ID for the loan. The response should look something like this:\n\n``` json\n{  \n   \"d\":{  \n      \"__metadata\":{  \n         \"uri\":\"https://loanpro.simnang.com/api/public/api/1/odata.svc/Loans(id=702)\",\n         \"type\":\"Entity.Loan\"\n      },\n      \"LoanSetup\": {\n        \"__metadata\": {\n        \"uri\": \"https://loanpro.simnang.com/api/public/api/1/odata.svc/LoanSetup(id=861)\",\n        \"type\": \"Entity.LoanSetup\"\n      },\n      \"id\":702,\n      \"displayId\":\"LOAN597f93726b19f\",\n      \"title\":\"LN - PHP SDK597f933a295d6\",\n      \"settingsId\":661,\n      \"setupId\":861,  // 👈 This is the ID you're looking for.\n      \"insurancePolicyId\":null,\n      \"collateralId\":433,\n      \"linkedLoan\":null,\n      \"modId\":null,\n      \"modTotal\":0,\n      \"humanActivityDate\":\"/Date(1555459200)/\",\n      \"created\":\"/Date(1501532986)/\",\n      \"lastMaintRun\":\"/Date(1555489226)/\",\n      \"createdBy\":806,\n      \"active\":1,\n      \"archived\":0,\n      \"loanAlert\":null,\n      \"temporaryAccount\":0,\n      \"deleted\":0,\n      \"deletedAt\":null,\n      \"_relatedMetadata\":null,\n      \"_dynamicProperties\":null\n   }\n}\n\n```\n\nIn the example above, the `setupId` is **861**. Once you have the `loanSetup` ID, you are ready to set the loan terms of the modification.\n\n## Step 4 - Update the Loan Setup\n\nTo update the new loan setup, send the following PUT request:\n\n``` http\nPUT https://loanpro.simnang.com/api/public/api/1/odata.svc/Loans({loanId})\n\n```\n\n``` json\n{  \n   \"LoanSetup\":{  \n      \"id\":861, // <--- loan setup ID\n      \"loanId\":702,\n      \"loanAmount\":12345.67,\n      \"payment\":500,\n      \"loanRate\":5.9,\n      \"contractDate\":\"2019-02-19\",\n      \"firstPaymentDate\":\"2019-03-20\",\n      \"loanTerm\":12,\n      \"__id\":861, // <--- loan setup ID\n      \"__update\":true\n   },\n   \"__id\":702, // <--- loan ID\n   \"__update\":true\n}\n\n```\n\nBe sure to replace `{loanId}` with the ID of the loan.\n\n## Step 5 - Roll the Payment (Optional)\n\nYou may want to roll the payment for the customer so it matches the original payment amount. This is achieved by sending a POST request:\n\n``` http\nPOST https://loanpro.simnang.com/api/public/api/1/Loans({loanID})\n\n```\n\n``` json\n{\n  \"amount\": \"100.00\",\n  \"method\": \"loan.rollPayment.termExact\"\n}\n\n```\n\nMake sure to replace `{loanId}` with the ID of the loan.\n\n## Step 6 - Activate the Loan\n\nThe last step is to activate the loan. To activate it, send a POST request to the following endpoint:\n\n``` http\nPOST https://loanpro.simnang.com/api/public/api/1/Loans({loanID})/AutoPal.Activate()\n\n```\n\nMake sure to replace `{loanId}` with the ID of the loan here as well. No payload is required for this request. If this request is successful, the process of modifying a loan is now complete.  \n  \n\n## Database\n\nFor information on Loan Modification database tables, see the following articles:\n\n- [Database – Loan Modification Info (loan_modification_entity)](https://help.loanpro.io/article/qolpvrfegg-loan-modification-entity-loan-modification-info)\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Loan Modification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/Loans({{LoanID}})/Autopal.CancelModification()",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Loans({{LoanID}})",
+						"Autopal.CancelModification()"
+					]
+				},
+				"description": "## General\n\nA Loan Modification, like the name implies, is a change made to the settings of a loan. Loan Modifications are more than simple changes to a loan's terms, however. Here's what you need to know about modifications:\n\n- Modifications are used for loans that have already been activated. Thus, modification requests will not work for loans that are inactivated.\n- A loan modification is essentially a new loan that is placed on top of an old loan. The history and transactions from the old loan are present, but the terms of the new loan take precedence.\n- Cancelling modifications are \"soft deletes\" in the database, meaning they aren't removed but instead marked as deleted within the table.\n    \n\nFor an example on how Loan Modifications work within the UI, take a look at our [Account Modification](https://help.loanpro.io/article/8v8jvyqdl3-account-modification) article.\n\n> 👆 Pay special attention to the endpoint of this request.\n> \n> This request does **not** use OData, so it's not included in the endpoint like most other LMS requests.\n\n## Database\n\nFor information on Loan Modification database tables, see the following articles:\n\n- [Database – Loan Modification Info (loan_modification_entity)](https://help.loanpro.io/article/qolpvrfegg-loan-modification-entity-loan-modification-info)\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Enhanced Funding - Funding a Customer's Bank Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"loanId\": {{LoanID}},\r\n  \"customerId\": {{CustomerID}},\r\n  \"sourceCompanyId\": null,\r\n  \"categoryId\": 1,\r\n  \"paymentAccountId\": \"188\",\r\n  \"merchantProcessorGroupId\": \"1\",\r\n  \"merchantTxProcessorId\": \"\",\r\n  \"date\": \"2021-06-16\",\r\n  \"amount\": 10,\r\n  \"method\": \"loan.funding.method.deposit\",\r\n  \"authorizationType\": \"loan.funding.auth.ccd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/LoanFundingTransactions",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"LoanFundingTransactions"
+					]
+				},
+				"description": "## General\n\nLoanPro's Enhanced Funding tool allows you to fund a loan via multiple methods. If preferred, you can even use a Source Company to fund a loan. This tool is an update to the [old Funding tool](https://loanpro.readme.io/reference/fund-a-loan). The old method still works, but it will be phased out in the future. Here's what you need to know about this request:\n\n- LoanPro's Enhanced Funding tool helps lenders keep track of how they give money to their borrowers.\n- There are multiple methods for funding a loan, and the `method` field determines which is used.\n    \n\nFor an example of how the Enhanced Funding tool works within the UI, take a look at our [Enhanced Funding](https://help.loanpro.io/article/5cu8s1o9ok-enhanced-funding) article on our help site.\n\n## Database\n\nFor information on enhanced funding database table, see the following articles:\n\n- [Database – Enhanced Funding (loan_funding_transaction_entity)](https://help.loanpro.io/article/py0rii8qmn-database-loan-funding-transaction-loan-funding-transaction-entity)\n- [Database – Funding Category (funding_category_entity)](https://help.loanpro.io/article/sp334a3r88-funding-category-entity-funding-category)"
+			},
+			"response": []
+		},
+		{
+			"name": "Enhanced Funding - Funding From a Cash Drawer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"loanId\": {{LoanID}},\r\n     \"customerId\": {{CustomerID}},\r\n     \"categoryId\": 1,\r\n     \"method\": \"loan.funding.method.cashdrawer\",\r\n     \"date\": \"2023-01-01\",\r\n     \"amount\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/LoanFundingTransactions",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"LoanFundingTransactions"
+					]
+				},
+				"description": "## General\n\nLoanPro's Enhanced Funding tool allows you to fund a loan via multiple methods. If preferred, you can even use a Source Company to fund a loan. This tool is an update to the [old Funding tool](https://loanpro.readme.io/reference/fund-a-loan). The old method still works, but it will be phased out in the future. Here's what you need to know about this request:\n\n- LoanPro's Enhanced Funding tool helps lenders keep track of how they give money to their borrowers.\n- There are multiple methods for funding a loan, and the `method` field determines which is used.\n    \n\nFor an example of how the Enhanced Funding tool works within the UI, take a look at our [Enhanced Funding](https://help.loanpro.io/article/5cu8s1o9ok-enhanced-funding) article on our help site.\n\n## Database\n\nFor information on enhanced funding database table, see the following articles:\n\n- [Database – Enhanced Funding (loan_funding_transaction_entity)](https://help.loanpro.io/article/py0rii8qmn-database-loan-funding-transaction-loan-funding-transaction-entity)\n- [Database – Funding Category (funding_category_entity)](https://help.loanpro.io/article/sp334a3r88-funding-category-entity-funding-category)"
+			},
+			"response": []
+		},
+		{
+			"name": "Enhanced Funding - Funding with a Physical Check",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loanId\": {{LoanID}},\r\n    \"customerId\": {{CustomerID}},\r\n    \"categoryId\": 1,\r\n    \"date\": \"2022-09-14\",\r\n    \"amount\": 100,\r\n    \"method\": \"loan.funding.method.printcheck\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/LoanFundingTransactions",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"LoanFundingTransactions"
+					]
+				},
+				"description": "## General\n\nLoanPro's Enhanced Funding tool allows you to fund a loan via multiple methods. If preferred, you can even use a Source Company to fund a loan. This tool is an update to the [old Funding tool](https://loanpro.readme.io/reference/fund-a-loan). The old method still works, but it will be phased out in the future. Here's what you need to know about this request:\n\n- LoanPro's Enhanced Funding tool helps lenders keep track of how they give money to their borrowers.\n- There are multiple methods for funding a loan, and the `method` field determines which is used.\n    \n\nFor an example of how the Enhanced Funding tool works within the UI, take a look at our [Enhanced Funding](https://help.loanpro.io/article/5cu8s1o9ok-enhanced-funding) article on our help site.\n\n## Database\n\nFor information on enhanced funding database table, see the following articles:\n\n- [Database – Enhanced Funding (loan_funding_transaction_entity)](https://help.loanpro.io/article/py0rii8qmn-database-loan-funding-transaction-loan-funding-transaction-entity)\n- [Database – Funding Category (funding_category_entity)](https://help.loanpro.io/article/sp334a3r88-funding-category-entity-funding-category)"
+			},
+			"response": []
+		},
+		{
+			"name": "Link Customer to Loan",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Customers\": {\r\n        \"results\": [\r\n            {\r\n                \"__id\": {{CustomerID}},\r\n                \"__setLoanRole\": \"loan.customerRole.primary\"\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nLoans and customers are \"linked\" when they become associated with each other. Here's what you need to know about linking loans and customers:\n\n- This request is sent through the `Loans` endpoint. Thus, the `Customers` object is included in the payload.\n- Both loans and customers can be created without being associated to each other.\n- Similar to the UI, you can link multiple customers to a loan in a single request.\n- Like we've mentioned in other requests, many users tend to want to simultaneously link a customer when they create a new loan within one request. If this is the case for you, **you will need to create a new customer first**. Here's why:  \n      \n    When you create a new loan and link a customer all within the same request, you send it through the `Loans` endpoint. Therefore, you will need a valid customer ID since you can't create a customer through the `Loans` endpoint.  \n      \n    For information on how to simultaneously link a customer while creating a new loan, take a look at our [Create New Loan](https://loanpro.readme.io/reference/getting-started-with-your-api) request.\n    \n\nAnd for an example of how linking works within the UI, read our [Link a Customer to a Loan](https://help.loanpro.io/article/ons9zvkr76-link-a-customer-to-a-loan) article.\n\n## Database\n\nFor information on loans and customers database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)\n- [Database – Loan Status Entity (loan_status_entity)](https://help.loanpro.io/article/5yybr09tzq-loan-status-entity-loan-status-entity)\n- [Database – Customer Main Table (customer_entity)](https://help.loanpro.io/article/yfrv6poux5-database-customer-main-table-customer-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Unlink Customer from Loan",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Customers\": {\r\n\t\t\"results\": [\r\n\t\t\t{\r\n\t\t\t\t\"__id\": {{CustomerID}},\r\n\t\t\t\t\"__destroy\": true\r\n\t\t\t}\r\n\t\t]\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nLoans and customers are \"linked\" when they become associated with each other. Here's what you need to know about linking loans and customers:\n\n- This request is sent through the `Loans` endpoint. Thus, the `Customers` object is included in the payload.\n- Both loans and customers can exist without being associated to each other.\n    \n\nFor an example of how linking works within the UI, read our [Link a Customer to a Loan](https://help.loanpro.io/article/ons9zvkr76-link-a-customer-to-a-loan) article.\n\n## Database\n\nFor information on loans and customers database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)\n- [Database – Loan Status Entity (loan_status_entity)](https://help.loanpro.io/article/5yybr09tzq-loan-status-entity-loan-status-entity)\n- [Database – Customer Main Table (customer_entity)](https://help.loanpro.io/article/yfrv6poux5-database-customer-main-table-customer-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Parent-Child Loan Linking",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"LoanChilds\": {\r\n        \"results\": [\r\n            {\r\n                \"childId\": {{LoanID1}},\r\n                \"enrolled\": 1,\r\n                \"percentage\": 50\r\n            },\r\n            {\r\n                \"childId\": {{LoanID2}},\r\n                \"enrolled\": 1,\r\n                \"percentage\": 50\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nParent-child loan linking lets you designate multiple loans as the child of a single parent loan. When transactions are posted to the parent loan, a transaction is also posted to each child loan in a specified percentage. Here's what you need to know about this request:\n\n- This request is sent through an endpoint including the parent loan's ID. Then, the `LoanChilds` object is included in the payload to link child loans.\n- You need a minimum of one parent loan and one child loan; however, you can set multiple child loans.\n- Your loans must **not** have any current links to other loans. These links are one-dimensional—if a loan is a child to a parent loan, it cannot act as a parent to any other loan.\n- The percentage fields in the `LoanChilds` array(s) need to add up to exactly 100. This field determines the percentage split of the transactions made on the loans.\n    \n\nFor an example of how loan linking works within the UI, check out our [Parent-Child Loan Linking](https://help.loanpro.io/article/lhcfdwdibq-parent-child-loan-linking) article.\n\n## Database\n\nFor information on loans and database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Status Entity (loan_status_entity)](https://help.loanpro.io/article/5yybr09tzq-loan-status-entity-loan-status-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Loan Setup Information to Loan",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"LoanSetup\": {\r\n        \"modId\": 0,\r\n        \"active\": 0,\r\n        \"apr\": \"14.9999\",\r\n        \"aprForceSingle\": \"0\",\r\n        \"payment\": \"237.90\",\r\n        \"origFinalPaymentDate\": \"/Date(1817769600)/\",\r\n        \"origFinalPaymentAmount\": \"237.80\",\r\n        \"tilFinanceCharge\": \"4273.90\",\r\n        \"tilTotalOfPayments\": \"14273.90\",\r\n        \"tilLoanAmount\": \"10000.00\",\r\n        \"tilSalesPrice\": \"14273.90\",\r\n        \"tilPaymentSchedule\": \"[{\\\"count\\\":59,\\\"payment\\\":237.90000000000001,\\\"startDate\\\":\\\"09\\\\/09\\\\/2022\\\"},{\\\"count\\\":1,\\\"payment\\\":237.80000000000001,\\\"startDate\\\":\\\"08\\\\/09\\\\/2027\\\"}]\",\r\n        \"regzCustomEnabled\": 0,\r\n        \"regzApr\": \"0.0000\",\r\n        \"regzFinanceCharge\": \"0.00\",\r\n        \"regzAmountFinanced\": \"0.00\",\r\n        \"regzTotalOfPayments\": \"0.00\",\r\n        \"loanAmount\": \"2000.00\",\r\n        \"discount\": \"0.00\",\r\n        \"underwriting\": 0,\r\n        \"loanRate\": 15,\r\n        \"loanRateType\": \"loan.rateType.annually\",\r\n        \"loanTerm\": 60,\r\n        \"moneyFactor\": 0,\r\n        \"residual\": 0,\r\n        \"contractDate\": \"2022-08-10\",\r\n        \"firstPaymentDate\": \"2022-09-24\",\r\n        \"scheduleRound\": \"0.00\",\r\n        \"amountDown\": \"0.00\",\r\n        \"reserve\": \"0.00\",\r\n        \"salesPrice\": \"0.00\",\r\n        \"gap\": \"0.00\",\r\n        \"warranty\": \"0.00\",\r\n        \"dealerProfit\": \"0.00\",\r\n        \"taxes\": \"0.00\",\r\n        \"creditLimit\": \"0.00\",\r\n        \"reportingCreditLimit\": \"0.00\",\r\n        \"loanClass\": \"loan.class.consumer\",\r\n        \"loanType\": \"loan.type.installment\",\r\n        \"discountSplit\": 1,\r\n        \"paymentFrequency\": \"loan.frequency.monthly\",\r\n        \"calcType\": \"loan.calcType.simpleInterest\",\r\n        \"daysInYear\": \"loan.daysInYear.frequency\",\r\n        \"interestApplication\": \"loan.interestApplication.betweenPeriods\",\r\n        \"begEnd\": \"loan.begend.end\",\r\n        \"firstPeriodDays\": \"loan.firstPeriodDays.frequency\",\r\n        \"firstDayInterest\": 1,\r\n        \"discountCalc\": \"loan.discountCalc.rebalancing\",\r\n        \"diyAlt\": 0,\r\n        \"dueDateOnLastDOM\": \"0\",\r\n        \"dueDatesOnBusinessDays\": \"loan.businessduedates.disabled\",\r\n        \"daysInPeriod\": \"loan.daysinperiod.30\",\r\n        \"roundDecimals\": 2,\r\n        \"lastAsFinal\": 0,\r\n        \"nddCalc\": \"loan.nddCalc.standard\",\r\n        \"endInterest\": \"loan.endInterest.no\",\r\n        \"scheduleTemplate\": 0,\r\n        \"curtailmentTemplate\": 0,\r\n        \"feesPaidBy\": \"loan.feesPaidBy.period\",\r\n        \"useInterestTiers\": 0,\r\n        \"calcHistoryEnabled\": 0,\r\n        \"calcDatesEnabled\": 0,\r\n        \"graceDays\": 5,\r\n        \"lateFeeType\": \"loan.lateFee.1\",\r\n        \"lateFeeAmount\": \"30.00\",\r\n        \"lateFeeCalc\": \"loan.lateFeeCalc.standard\",\r\n        \"lateFeePercentBase\": \"loan.latefeepercentbase.regular\",\r\n        \"rollLastPayment\": 0,\r\n        \"paymentDateApp\": \"loan.pmtdateapp.actual\",\r\n        \"suspendForecastTo\": null,\r\n        \"isSetupValid\": true,\r\n        \"usuryAlert\": null,\r\n        \"maxInterestAmount\": null,\r\n        \"financeChargeAsMIA\": 0,\r\n        \"setup\": true,\r\n        \"escrowExtendFinal\": 0,\r\n        \"showDiscPerc\": false,\r\n        \"lateFeePercent\": 0,\r\n        \"EscrowCalculators\": {\r\n            \"results\": [\r\n                {\r\n                    \"__metadata\": {\r\n                        \"uri\": \"http://loanpro.simnang.com/api/public/api/1/odata.svc/EscrowCalculators(id=5367)\",\r\n                        \"type\": \"Entity.EscrowCalculatorEntity\"\r\n                    },\r\n                    \"id\": {{EscrowCalculatorID}},\r\n                    \"entityType\": \"Entity.Loan\",\r\n                    \"entityId\": {{LoanID}},\r\n                    \"modId\": null,\r\n                    \"subset\": \"1\",\r\n                    \"term\": 1,\r\n                    \"total\": 0,\r\n                    \"percent\": 0,\r\n                    \"firstPeriod\": 0,\r\n                    \"regularPeriod\": 0,\r\n                    \"percentBase\": \"loan.escrowPercentBase.basePayment\",\r\n                    \"proRate1st\": \"loan.escrowProrateFirst.none\",\r\n                    \"extendFinal\": 0,\r\n                    \"disclosureLnAmtAdd\": 1,\r\n                    \"_saved\": true,\r\n                    \"paymentApplication\": \"loan.escrowpmtapp.percentfixed\",\r\n                    \"lastPeriod\": 0,\r\n                    \"allPayments\": [],\r\n                    \"__update\": true,\r\n                    \"__id\": {{EscrowCalculatorID}}\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nThe `LoanSetup` object is nested within the `Loans` entity, and it holds loan information such as loan amount, interest rate, term, and more. Here's what you need to know about this request:\n\n- **The values in** `LoanSetup` **directly affect how a loan is calculated.**\n- Due to this, you cannot update these values if the loan is activated.\n    \n\nFor more information on this topic and examples of how it works within the UI, take a look at our [Setup Terms](https://help.loanpro.io/article/gdn9j7c0yc-setup-terms) article.\n\n## Database\n\nFor information on loan database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Loan Setup Information",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "// The \"__id\" and \"__update\" fields are required when updating a loan setup configuration.\r\n\r\n{\r\n    \"LoanSetup\": {\r\n        \"__id\": {{LoanSetupID}},\r\n        \"__update\": true,\r\n        \"modId\": 0,\r\n        \"active\": 0,\r\n        \"apr\": \"14.9999\",\r\n        \"aprForceSingle\": \"0\",\r\n        \"payment\": \"237.90\",\r\n        \"origFinalPaymentDate\": \"/Date(1817769600)/\",\r\n        \"origFinalPaymentAmount\": \"237.80\",\r\n        \"tilFinanceCharge\": \"4273.90\",\r\n        \"tilTotalOfPayments\": \"14273.90\",\r\n        \"tilLoanAmount\": \"10000.00\",\r\n        \"tilSalesPrice\": \"14273.90\",\r\n        \"tilPaymentSchedule\": \"[{\\\"count\\\":59,\\\"payment\\\":237.90000000000001,\\\"startDate\\\":\\\"09\\\\/09\\\\/2022\\\"},{\\\"count\\\":1,\\\"payment\\\":237.80000000000001,\\\"startDate\\\":\\\"08\\\\/09\\\\/2027\\\"}]\",\r\n        \"regzCustomEnabled\": 0,\r\n        \"regzApr\": \"0.0000\",\r\n        \"regzFinanceCharge\": \"0.00\",\r\n        \"regzAmountFinanced\": \"0.00\",\r\n        \"regzTotalOfPayments\": \"0.00\",\r\n        \"loanAmount\": \"2000.00\",\r\n        \"discount\": \"0.00\",\r\n        \"underwriting\": 0,\r\n        \"loanRate\": 15,\r\n        \"loanRateType\": \"loan.rateType.annually\",\r\n        \"loanTerm\": 60,\r\n        \"moneyFactor\": 0,\r\n        \"residual\": 0,\r\n        \"contractDate\": \"2022-08-10\",\r\n        \"firstPaymentDate\": \"2022-09-24\",\r\n        \"scheduleRound\": \"0.00\",\r\n        \"amountDown\": \"0.00\",\r\n        \"reserve\": \"0.00\",\r\n        \"salesPrice\": \"0.00\",\r\n        \"gap\": \"0.00\",\r\n        \"warranty\": \"0.00\",\r\n        \"dealerProfit\": \"0.00\",\r\n        \"taxes\": \"0.00\",\r\n        \"creditLimit\": \"0.00\",\r\n        \"reportingCreditLimit\": \"0.00\",\r\n        \"loanClass\": \"loan.class.consumer\",\r\n        \"loanType\": \"loan.type.installment\",\r\n        \"discountSplit\": 1,\r\n        \"paymentFrequency\": \"loan.frequency.monthly\",\r\n        \"calcType\": \"loan.calcType.simpleInterest\",\r\n        \"daysInYear\": \"loan.daysInYear.frequency\",\r\n        \"interestApplication\": \"loan.interestApplication.betweenPeriods\",\r\n        \"begEnd\": \"loan.begend.end\",\r\n        \"firstPeriodDays\": \"loan.firstPeriodDays.frequency\",\r\n        \"firstDayInterest\": 1,\r\n        \"discountCalc\": \"loan.discountCalc.rebalancing\",\r\n        \"diyAlt\": 0,\r\n        \"dueDateOnLastDOM\": \"0\",\r\n        \"dueDatesOnBusinessDays\": \"loan.businessduedates.disabled\",\r\n        \"daysInPeriod\": \"loan.daysinperiod.30\",\r\n        \"roundDecimals\": 2,\r\n        \"lastAsFinal\": 0,\r\n        \"nddCalc\": \"loan.nddCalc.standard\",\r\n        \"endInterest\": \"loan.endInterest.no\",\r\n        \"scheduleTemplate\": 0,\r\n        \"curtailmentTemplate\": 0,\r\n        \"feesPaidBy\": \"loan.feesPaidBy.period\",\r\n        \"useInterestTiers\": 0,\r\n        \"calcHistoryEnabled\": 0,\r\n        \"calcDatesEnabled\": 0,\r\n        \"graceDays\": 5,\r\n        \"lateFeeType\": \"loan.lateFee.1\",\r\n        \"lateFeeAmount\": \"30.00\",\r\n        \"lateFeeCalc\": \"loan.lateFeeCalc.standard\",\r\n        \"lateFeePercentBase\": \"loan.latefeepercentbase.regular\",\r\n        \"rollLastPayment\": 0,\r\n        \"paymentDateApp\": \"loan.pmtdateapp.actual\",\r\n        \"suspendForecastTo\": null,\r\n        \"isSetupValid\": true,\r\n        \"usuryAlert\": null,\r\n        \"maxInterestAmount\": null,\r\n        \"financeChargeAsMIA\": 0,\r\n        \"setup\": true,\r\n        \"escrowExtendFinal\": 0,\r\n        \"showDiscPerc\": false,\r\n        \"lateFeePercent\": 0,\r\n        \"EscrowCalculators\": {\r\n            \"results\": [\r\n                {\r\n                    \"__metadata\": {\r\n                        \"uri\": \"http://loanpro.simnang.com/api/public/api/1/odata.svc/EscrowCalculators(id=5367)\",\r\n                        \"type\": \"Entity.EscrowCalculatorEntity\"\r\n                    },\r\n                    \"id\": {{EscrowCalculatorID}},\r\n                    \"entityType\": \"Entity.Loan\",\r\n                    \"entityId\": {{LoanID}},\r\n                    \"modId\": null,\r\n                    \"subset\": \"1\",\r\n                    \"term\": 1,\r\n                    \"total\": 0,\r\n                    \"percent\": 0,\r\n                    \"firstPeriod\": 0,\r\n                    \"regularPeriod\": 0,\r\n                    \"percentBase\": \"loan.escrowPercentBase.basePayment\",\r\n                    \"proRate1st\": \"loan.escrowProrateFirst.none\",\r\n                    \"extendFinal\": 0,\r\n                    \"disclosureLnAmtAdd\": 1,\r\n                    \"_saved\": true,\r\n                    \"paymentApplication\": \"loan.escrowpmtapp.percentfixed\",\r\n                    \"lastPeriod\": 0,\r\n                    \"allPayments\": [],\r\n                    \"__update\": true,\r\n                    \"__id\": {{EscrowCalculatorID}}\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nThe `LoanSetup` object is nested within the `Loans` entity, and it holds loan information such as loan amount, interest rate, term, and more. Here's what you need to know about this request:\n\n- **The values in** `LoanSetup` **directly affect how a loan is calculated.**\n- Due to this, you cannot update these values if the loan is activated.\n    \n\nFor more information on this topic and examples of how it works within the UI, take a look at our [Setup Terms](https://help.loanpro.io/article/gdn9j7c0yc-setup-terms) article.\n\n## Database\n\nFor information on loan database tables, see the following articles:\n\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)\n- [Database – Loan Setup (loan_setup_entity)](https://help.loanpro.io/article/ftg63st4dn-database-loan-setup-loan-setup-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Loan Settings Information",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"LoanSettings\": {\r\n        \"displayId\": \"2893\",\r\n        \"loanId\": {{LoanID}},\r\n        \"cardFeeAmount\": 0,\r\n        \"cardFeeType\": \"loan.cardfee.types.1\",\r\n        \"cardFeePercent\": 0,\r\n        \"agent\": 0,\r\n        \"loanStatusId\": 2,\r\n        \"loanSubStatusId\": 9,\r\n        \"sourceCompany\": null,\r\n        \"paymentTypeDefault\": 0,\r\n        \"eBilling\": 0,\r\n        \"ECOACode\": \"loan.ecoacodes.1\",\r\n        \"coBuyerECOACode\": \"loan.ecoacodes.0\",\r\n        \"creditStatus\": \"loan.creditstatus.0\",\r\n        \"creditBureau\": \"loan.creditbureau.00\",\r\n        \"reportingType\": \"loan.reportingtype.I\",\r\n        \"secured\": 1,\r\n        \"autopayEnabled\": 1,\r\n        \"repoDate\": \"\",\r\n        \"closedDate\": \"\",\r\n        \"liquidationDate\": \"\",\r\n        \"followUpDate\": \"\",\r\n        \"isStoplightManuallySet\": 0,\r\n        \"merchantProcessorGroupId\": 0,\r\n        \"repo\": false,\r\n        \"closed\": false,\r\n        \"liquidation\": false,\r\n        \"paymentTypeDefaultText\": \"Company Default\",\r\n        \"__id\": {{LoanSettingsID}},\r\n        \"__update\": true\r\n    },\r\n    \"CustomFieldValues\": {},\r\n    \"Portfolios\": {\r\n        \"results\": [\r\n            {\r\n                \"__metadata\": {\r\n                    \"uri\": \"/api/1/odata.svc/Portfolios(id=39)\",\r\n                    \"type\": \"Entity.Portfolio\"\r\n                }\r\n            }\r\n        ]\r\n    },\r\n    \"SubPortfolios\": {\r\n        \"results\": [\r\n            {\r\n                \"__metadata\": {\r\n                    \"uri\": \"/api/1/odata.svc/Portfolios(id=40)\",\r\n                    \"type\": \"Entity.SubPortfolio\"\r\n                }\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nThe `LoanSettings` object is nested within the `Loans` entity, and it holds information such as card fees, credit reporting configurations, loan dates, and more. Here's what you need to know about this request:\n\n- The values in `LoanSettings` **do not** affect how a loan is calculated, so they can be updated while the loan is active.\n    \n\nFor an example of how Loan Settings are updated within the UI, take a look at our [Loan Settings](https://help.loanpro.io/article/mzo3lqur28-loan-settings) article.\n\n## Database\n\nFor information on loan settings database tables, see the following articles:\n\n- [Database – Loan Settings Entity (loan_settings_entity)](https://help.loanpro.io/article/7h1ufn1dkg-loan-settings-entity-loan-settings-entity)\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Schedule Line",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ScheduleRolls\": {\r\n        \"results\": [\r\n            {\r\n                \"term\": 3,\r\n                \"rate\": \"5\",\r\n                \"solveUsing\": \"loan.rollScheduleSolve.dollar\",\r\n                \"amount\": \"150.00\",\r\n                \"percent\": 0,\r\n                \"advancedTerms\": 0,\r\n                \"solveFor\": \"loan.rollScheduleSolveFor.payment\",\r\n                \"balance\": 0,\r\n                \"forceBalloon\": 0\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nA schedule roll allows lenders to change payment schedules in separate payment periods. For example, a lender may want to offer 5% interest on the first three periods of a loan, but then 15% for the remainder of the loan. Here's what you need to know about this request:\n\n- Schedule rolls can only be made on accounts that are not activated.\n- The loan will likely not be at the exact principal balance you enter, but it will be close. This is due, in part, to the necessity of dealing with dollars and cents (2 decimal places) for final calculated numbers.\n    \n\nFor an example of how schedule rolls work within the UI, take a look at our [Create a Schedule Roll](https://help.loanpro.io/article/5axin9rmf7-create-a-schedule-roll) article.\n\n## Database\n\nFor information on schedule roll database tables, see the following articles:\n\n- [Database – Loan Schedule Roll Entity (loan_schedule_roll_entity)](https://help.loanpro.io/article/05n79tbrt9-loan-schedule-roll-entity-loan-schedule-role-entity)\n- [Database – Schedule Roll Template (schedule_roll_template_entity)](https://help.loanpro.io/article/viqg7c62ef-schedule-roll-template-entity-schedule-roll-template)"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Schedule Line",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ScheduleRolls\": {\r\n        \"results\": [\r\n            {\r\n                \"__destroy\": true,\r\n                \"__id\": {{ScheduleRollID}}\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nA schedule roll allows lenders to change payment schedules in separate payment periods. For example, a lender may want to offer 5% interest on the first three periods of a loan, but then 15% for the remainder of the loan. Here's what you need to know about this request:\n\n- Schedule rolls can only be made on accounts that are not activated.\n- This request removes a schedule roll configuration entirely and resets a loan to its original loan terms.\n    \n\nFor an example of how schedule roll templates work within the UI, take a look at our [Roll Schedule Templates](https://help.loanpro.io/article/7linipza7a-roll-schedule-templates) article.\n\n## Database\n\n- [Database – Loan Schedule Roll Entity (loan_schedule_roll_entity)](https://help.loanpro.io/article/05n79tbrt9-loan-schedule-roll-entity-loan-schedule-role-entity)\n- [Database – Schedule Roll Template (schedule_roll_template_entity)](https://help.loanpro.io/article/viqg7c62ef-schedule-roll-template-entity-schedule-roll-template)"
+			},
+			"response": []
+		},
+		{
+			"name": "Use Schedule Roll Template",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/Loans({{LoanID}})/Autopal.SetRollScheduleTemplate({{TemplateID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"Loans({{LoanID}})",
+						"Autopal.SetRollScheduleTemplate({{TemplateID}})"
+					]
+				},
+				"description": "## General\n\nA schedule roll allows lenders to change payment schedules in separate payment periods. For example, a lender may want to offer 5% interest on the first three periods of a loan, but then 15% for the remainder of the loan. Here's what you need to know about this request:\n\n- Schedule rolls can only be made on accounts that are not activated.\n- LoanPro users can create and save schedule roll templates to quickly apply schedule roll terms to loans.\n- There are several pre-configured templates that are available for all users. (These templates are listed and explained below.)\n- Only one template can be applied to a loan at a time.\n    \n\nFor an example of how schedule roll templates work within the UI, take a look at our [Roll Schedule Templates](https://help.loanpro.io/article/7linipza7a-roll-schedule-templates) article.\n\n> 👆 Pay special attention to the endpoint of this request.\n> \n> This request does **not** use OData, so it's not included in the endpoint like most other LMS requests.\n\n## Database\n\nFor information on schedule roll database tables, see the following articles:\n\n- [Database – Loan Schedule Roll Entity (loan_schedule_roll_entity)](https://help.loanpro.io/article/05n79tbrt9-loan-schedule-roll-entity-loan-schedule-role-entity)\n- [Database – Schedule Roll Template (schedule_roll_template_entity)](https://help.loanpro.io/article/viqg7c62ef-schedule-roll-template-entity-schedule-roll-template)"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Collateral",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Collateral\": {\r\n    \"results\": [\r\n      {\r\n        \"a\": \"2017\",\r\n        \"b\": \"Suzuki\",\r\n        \"c\": \"VS750GLP\",\r\n        \"d\": \"Base\",\r\n        \"additional\": \"Information\",\r\n        \"collateralType\": \"collateral.type.car\",\r\n        \"vin\": \"JS1VR51A5H2151359\",\r\n        \"distance\": \"25000\",\r\n        \"bookValue\": \"2408.59\",\r\n        \"color\": \"White\",\r\n        \"gpsStatus\": \"collateral.gpsstatus.notinstalled\",\r\n        \"gpsCode\": \"NONE\",\r\n        \"licensePlate\": \"License Plate Number\",\r\n        \"gap\": \"1125.25\",\r\n        \"warranty\": \"1254\",\r\n        \"positionId\": 1\r\n      },\r\n      {\r\n        \"a\": \"2020\",\r\n        \"b\": \"Honda\",\r\n        \"c\": \"Accord\",\r\n        \"d\": \"LE\",\r\n        \"additional\": \"Information\",\r\n        \"collateralType\": \"collateral.type.car\",\r\n        \"vin\": \"JS1VR51A5H2151359\",\r\n        \"distance\": \"13000\",\r\n        \"bookValue\": \"24708.59\",\r\n        \"color\": \"Blue\",\r\n        \"gpsStatus\": \"collateral.gpsstatus.notinstalled\",\r\n        \"gpsCode\": \"NONE\",\r\n        \"licensePlate\": \"License Plate Number\",\r\n        \"gap\": \"0\",\r\n        \"warranty\": \"0\",\r\n        \"positionId\": 2\r\n      }\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nMany lenders use collateral to secure their loans. Here's what you need to know about collateral:\n\n- The `Collateral` object is nested within the `Loans` entity.\n- Up to 50 items can be collateralized on a single loan. Loans can also have no collateral.\n- The system uses VIN information to check for duplicates. You won't be allowed to add a new collateralized item with a VIN that matches an existing one.\n    \n\nFor an example of how collateral works within the UI, take a look at our [Add Collateral Information](https://help.loanpro.io/article/fvdysvf23t-add-collateral-information) article.\n\n## Database\n\nFor information on collateral database tables, see the following articles:\n\n- [Database – Collateral Entity (collateral_entity)](https://help.loanpro.io/article/5u1kgajst8-collateral-entity-collateral-entity)\n- [Database – Collateral Field Entity (collateral_field_entity)](https://help.loanpro.io/article/bu7c7bau49-collateral-field-entity-collateral-field-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Current Collateral",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Collateral\": {\r\n        \"results\": [\r\n            {\r\n                \"a\": \"2017\",\r\n                \"b\": \"Suzuki\",\r\n                \"c\": \"VS750GLP\",\r\n                \"d\": \"Base\",\r\n                \"additional\": \"Informational text\",\r\n                \"collateralType\": \"collateral.type.car\",\r\n                \"vin\": \"JS1VR51A5H2151359\",\r\n                \"distance\": \"25000\",\r\n                \"bookValue\": \"2408.59\",\r\n                \"color\": \"White\",\r\n                \"gpsStatus\": \"collateral.gpsstatus.notinstalled\",\r\n                \"gpsCode\": \"NONE\",\r\n                \"licensePlate\": \"License Plate Number\",\r\n                \"gap\": \"1125.25\",\r\n                \"warranty\": \"1254\",\r\n                \"positionId\": null,\r\n                \"__update\": true,\r\n                \"__id\": {{CollateralID}}\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nMany lenders use collateral to secure their loans. Here's what you need to know about collateral:\n\n- The `Collateral` object is nested within the `Loans` entity.\n- Up to 50 items can be collateralized on a single loan. Loans can also have no collateral.\n- The system uses VIN information to check for duplicates. You won't be allowed to add a new collateralized item with a VIN that matches an existing one.\n    \n\nFor an example of how collateral works within the UI, take a look at our [Add Collateral Information](https://help.loanpro.io/article/fvdysvf23t-add-collateral-information) article.\n\n## Database\n\nFor information on collateral database tables, see the following articles:\n\n- [Database – Collateral Entity (collateral_entity)](https://help.loanpro.io/article/5u1kgajst8-collateral-entity-collateral-entity)\n- [Database – Collateral Field Entity (collateral_field_entity)](https://help.loanpro.io/article/bu7c7bau49-collateral-field-entity-collateral-field-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Add & Update Insurance Information",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Insurance\": {\r\n        \"companyName\": \"State Farm\",\r\n        \"insured\": \"Jane Doe\",\r\n        \"agentName\": \"Mr. Agent\",\r\n        \"policyNumber\": \"EIRK-049203-0498\",\r\n        \"phone\": \"5555555555\",\r\n        \"deductible\": \"900.00\",\r\n        \"startDate\": \"2015-01-15\",\r\n        \"endDate\": \"2015-01-15\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nLenders will often track the insurance information for a collateral item such as an automobile. Here's what you need to know about this request:\n\n- The `Insurance` object is nested within the `Loans` entity.\n- Insurance information is not required for collateral items, but each loan account can only have one set of insurance information—even if there are multiple collateralized items.\n- Since you can only have one set of insurance information, this request doesn't require `**id` and `**update` fields like our other requests.\n    \n\nFor an example of how insurance works in the LoanPro UI, take a look at our [API – Add Insurance to a Loan](https://help.loanpro.io/article/ycb2zxfobs-api-add-insurance-to-a-loan) article on our help site.\n\n## Database\n\nFor information on insurance and collateral database tables, see the following articles:\n\n- [Database – Loan Insurance Info (loan_insurance_entity)](https://help.loanpro.io/article/2h3scwwulq-loan-insurance-entity-loan-insurance-info)\n- [Database – Collateral Entity (collateral_entity)](https://help.loanpro.io/article/5u1kgajst8-collateral-entity-collateral-entity)\n- [Database – Collateral Field Entity (collateral_field_entity)](https://help.loanpro.io/article/bu7c7bau49-collateral-field-entity-collateral-field-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Escrow Bucket Settings",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"EscrowSubsetOptions\": {\r\n          \"results\": [\r\n               {\r\n                    \"entityType\": \"Entity.Loan\",\r\n                    \"title\": \"API Demo Bucket\",\r\n                    \"payoffOption\": \"loan.escrowpayoff.standard\",\r\n                    \"paymentApplication\": \"loan.escrowpmtapp.standard\",\r\n                    \"aprInclude\": 1,\r\n                    \"scheduleInclude\": false,\r\n                    \"disclosureLnAmtAdd\": \"false\",\r\n                    \"availability\": \"loan.escrowAvailability.both\",\r\n                    \"interestBearing\": false,\r\n                    \"escrowAnalysisEnabled\": 0,\r\n                    \"cushion\": 1,\r\n                    \"cushionFixedAmount\": 100,\r\n                    \"cushionPercentage\": 0,\r\n                    \"escrowComputationYearStartDate\": \"01/01/2021\",\r\n                    \"nextEscrowAnalysisDate\": \"01/01/2022\",\r\n                    \"deficiencyDelimitingDPD\": 30,\r\n                    \"deficiencyDaysToPay\": 30,\r\n                    \"deficiencyDelimitingAmount\": 1,\r\n                    \"deficiencyDelimitingDollar\": 0,\r\n                    \"deficiencyDelimitingPercentage\": 0,\r\n                    \"deficiencyCatchupPaymentNumber\": 2,\r\n                    \"deficiencyActionA\": 1,\r\n                    \"deficiencyActionB\": 0,\r\n                    \"deficiencyActionC\": 0,\r\n                    \"shortageDaysToPay\": 30,\r\n                    \"shortageCatchupPaymentNumber\": 2,\r\n                    \"shortageDelimitingAmount\": 1,\r\n                    \"shortageDelimitingDollar\": 0,\r\n                    \"shortageDelimitingPercentage\": 0,\r\n                    \"shortageActionA\": 1,\r\n                    \"shortageActionB\": 0,\r\n                    \"surplusAllowedSurplus\": 50,\r\n                    \"surplusDaysToRefund\": 30,\r\n                    \"surplusActionA\": 1,\r\n                    \"surplusActionB\": 0,\r\n                    \"surplusActionC\": 1,\r\n                    \"__update\": true,\r\n                    \"__id\": {{EscrowSubsetOptionID}}\r\n               }\r\n          ]\r\n     }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nThere is a vast amount of configuration options available for escrow. Here is what you need to know about this request:\n\n- The `EscrowSubsetOptions` object is nested within the `Loans` entity, and it holds the configuration options for Escrow Buckets.\n- Users can configure up to 25 escrow buckets within their accounts.\n    \n\nFor an example of how configuring escrow buckets works within the UI, take a look at our [Update Escrow Account Settings](https://help.loanpro.io/article/uitvs17vax-update-escrow-account-settings#shortage_settings) article.\n\n## Database\n\nFor information on escrow database tables, see the following articles:\n\n- [Database – Escrow Subset Entity (escrow_subset_entity)](https://help.loanpro.io/article/j8u6q7z1bg-escrow-subset-entity-escrow-subset-entity)\n- [Database – Escrow Subset Options (escrow_subset_options_entity)](https://help.loanpro.io/article/ts5gb3cenx-escrow-subset-options-entity-escrow-subset-options)\n- [Database – Escrow Analysis Task Entity (escrow_analysis_task_entity)](https://help.loanpro.io/article/gakepfwg29-escrow-analysis-task-entity-escrow-analysis-task-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Escrow Adjustment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EscrowAdjustments\": {\r\n        \"results\": [\r\n            {\r\n                \"date\": \"2022-09-19\",\r\n                \"amount\": \"94.83\",\r\n                \"subset\": 2,\r\n                \"period\": 23\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nThis request allows you to add an escrow adjustment. Here's what you need to know about this request:\n\n- The `EscrowAdjustments` object holds escrow adjustment information, and it's nested within the `Loans` entity.\n- An escrow adjustment consists of two pieces of data:\n    - The payment period when the escrow amount will start to be added to payments\n    - The amount that will come due with each payment\n- When you enter an escrow adjustment, it will affect all payments from the payment period you enter forward.\n    \n\nAnd for an example of how escrow adjustments work within the UI, take a look at our [Create a New Escrow Adjustment](https://help.loanpro.io/article/ztq1moyg1l-create-a-new-escrow-adjustment) article.\n\n## Database\n\nFor information on escrow database tables, see the following articles:\n\n- [Database – Escrow Adjustment Entity (escrow_adjustment_entity)](https://help.loanpro.io/article/91u9b5v4ng-escrow-adjustment-entity-escrow-adjustment-entity)\n- [Database – Escrow Subset Entity (escrow_subset_entity)](https://help.loanpro.io/article/j8u6q7z1bg-escrow-subset-entity-escrow-subset-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Escrow Adjustment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EscrowAdjustments\": {\r\n        \"results\": [\r\n            {\r\n                \"date\": \"2021-01-01\",\r\n                \"amount\": \"100.29\",\r\n                \"subset\": 4,\r\n                \"period\": 1,\r\n                \"__id\": {{EscrowAdjustmentID}},\r\n                \"__update\": true\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nThis request allows you to edit an escrow adjustment. Here's what you need to know about this request:\n\n- The `EscrowAdjustments` object holds escrow adjustment information, and it's nested within the `Loans` entity.\n- An escrow adjustment consists of two pieces of data:\n    - The payment period when the escrow amount will start to be added to payments\n    - The amount that will come due with each payment\n- When you enter an escrow adjustment, it will affect all payments from the payment period you enter forward.\n    \n\nAnd for an example of how escrow adjustments work within the UI, take a look at our [Create a New Escrow Adjustment](https://help.loanpro.io/article/ztq1moyg1l-create-a-new-escrow-adjustment) article.\n\n## Database\n\nFor information on escrow database tables, see the following articles:\n\n- [Database – Escrow Adjustment Entity (escrow_adjustment_entity)](https://help.loanpro.io/article/91u9b5v4ng-escrow-adjustment-entity-escrow-adjustment-entity)\n- [Database – Escrow Subset Entity (escrow_subset_entity)](https://help.loanpro.io/article/j8u6q7z1bg-escrow-subset-entity-escrow-subset-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Escrow Adjustment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EscrowAdjustments\": {\r\n        \"results\": [\r\n            {\r\n                \"__id\": {{EscrowAdjustmentID}},\r\n                \"__destroy\": true\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nThis request allows you to delete an escrow adjustment. Here's what you need to know about this request:\n\n- The `EscrowAdjustments` object holds escrow adjustment information, and it's nested within the `Loans` entity.\n- An escrow adjustment consists of two pieces of data:\n    - The payment period when the escrow amount will start to be added to payments\n    - The amount that will come due with each payment\n- When you enter an escrow adjustment, it will affect all payments from the payment period you enter forward.\n    \n\nAnd for an example of how escrow adjustments work within the UI, take a look at our [Create a New Escrow Adjustment](https://help.loanpro.io/article/ztq1moyg1l-create-a-new-escrow-adjustment) article.\n\n## Database\n\nFor information on escrow database tables, see the following articles:\n\n- [Database – Escrow Adjustment Entity (escrow_adjustment_entity)](https://help.loanpro.io/article/91u9b5v4ng-escrow-adjustment-entity-escrow-adjustment-entity)\n- [Database – Escrow Subset Entity (escrow_subset_entity)](https://help.loanpro.io/article/j8u6q7z1bg-escrow-subset-entity-escrow-subset-entity)"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Escrow Calculator",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EscrowCalculators\": {\r\n        \"results\": [\r\n            {\r\n                \"subset\": 1,\r\n                \"term\": 36,\r\n                \"total\": 150,\r\n                \"percentBase\": \"loan.escrowPercentBase.loanAmount\",\r\n                \"proRate1st\": \"loan.escrowProrateFirst.full\",\r\n                \"extendFinal\": 0,\r\n                \"disclosureLnAmtAdd\": 0,\r\n                \"paymentApplication\": \"loan.escrowpmtapp.percentfixed\"\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nThis request allows you to add an Escrow Calculator to a loan. Here's what you need to know:\n\n- Since Escrow Calculators are a part of a loan's setup terms, they can only be added to loans that are not activated.\n- Escrow Calculators use Escrow Buckets. You will need to create one before adding a calculator, but you can do so [via the API](https://loanpro.readme.io/reference/edit-escrow-subset-optionsescrow-settings).\n    \n\nFor an example on how the Escrow Calculator functionality works within LoanPro's UI, take a look at our [Escrow Calculator](https://help.loanpro.io/article/017m36rp9p-escrow-calculator) article on our help site.\n\n## Database\n\nFor more information on escrow calculator database tables, see the following articles:\n\n- [Database – Escrow Calculator (escrow_calculator_entity)](https://help.loanpro.io/article/el4r9yh3yt-escrow-calculator-entity-escrow-calculator)\n- [Database – Escrow Subset Entity (escrow_subset_entity)](https://help.loanpro.io/article/j8u6q7z1bg-escrow-subset-entity-escrow-subset-entity)\n- [Database – Escrow Subset Options (escrow_subset_options_entity)](https://help.loanpro.io/article/ts5gb3cenx-escrow-subset-options-entity-escrow-subset-options)"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Escrow Transaction",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EscrowTransactions\": {\r\n        \"results\": [\r\n            {\r\n                \"date\": \"2022-11-24\",\r\n                \"amount\": \"100.00\",\r\n                \"type\": \"transaction.type.withdrawal\",\r\n                \"category\": 7,\r\n                \"description\": \"Standard Escrow Fee\",\r\n                \"subset\": 2\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nEscrow transactions allow you to record, deposit, and withdraw transactions for your Escrow Buckets within LoanPro. Here's what you need to know about this request:\n\n- The `EscrowTransactions` object is nested within the `Loans` entity, and it holds transaction history.\n- Escrow Calculators use Escrow Buckets. You will need to create one before adding a calculator, but you can do so [via the API](https://loanpro.readme.io/reference/edit-escrow-subset-optionsescrow-settings)\n    \n\nFor an example of how escrow transactions work within the UI, take a look at our [Create a New Escrow Transaction](https://help.loanpro.io/article/p61kwl1ta9-create-a-new-escrow-transaction) article on our help site.\n\n## Database\n\nFor information on escrow transaction database tables, see the following articles:\n\n- [Database – Escrow Transaction (escrow_transaction_entity)](https://help.loanpro.io/article/zfuddm6wwr-escrow-transaction-entity-escrow-transaction)\n- [Database – Escrow Transaction Category (escrow_tx_category_entity)](https://help.loanpro.io/article/dw60wovzos-escrow-tx-category-entity-escrow-transaction-category)\n- [Database – Escrow Transaction Metadata (escrow__transactions)](https://help.loanpro.io/article/1bqsudhoqw-escrow-transactions-escrow-transaction-metadata)"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Escrow Transaction",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EscrowTransactions\": {\r\n        \"results\": [\r\n            {\r\n                \"subset\": 2,\r\n                \"category\": 7,\r\n                \"description\": \"Testing\",\r\n                \"date\": \"2022-11-24\",\r\n                \"type\": \"transaction.type.withdrawal\",\r\n                \"amount\": \"250.00\",\r\n                \"__id\": {{EscrowTransactionID}},\r\n                \"__update\": true\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nEscrow transactions allow you to record, deposit, and withdraw transactions for your Escrow Buckets within LoanPro. Here's what you need to know about this request:\n\n- The `EscrowTransactions` object is nested within the `Loans` entity, and it holds transaction history.\n- Escrow Calculators use Escrow Buckets. You will need to create one before adding a calculator, but you can do so [via the API](https://loanpro.readme.io/reference/edit-escrow-subset-optionsescrow-settings)\n    \n\nFor an example of how escrow transactions work within the UI, take a look at our [Create a New Escrow Transaction](https://help.loanpro.io/article/p61kwl1ta9-create-a-new-escrow-transaction) article on our help site.\n\n## Database\n\nFor information on escrow transaction database tables, see the following articles:\n\n- [Database – Escrow Transaction (escrow_transaction_entity)](https://help.loanpro.io/article/zfuddm6wwr-escrow-transaction-entity-escrow-transaction)\n- [Database – Escrow Transaction Category (escrow_tx_category_entity)](https://help.loanpro.io/article/dw60wovzos-escrow-tx-category-entity-escrow-transaction-category)\n- [Database – Escrow Transaction Metadata (escrow__transactions)](https://help.loanpro.io/article/1bqsudhoqw-escrow-transactions-escrow-transaction-metadata)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Escrow Transaction",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EscrowTransactions\": {\r\n        \"results\": [\r\n            {\r\n                \"__id\": {{EscrowTransactionID}},\r\n                \"__destroy\": true\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nEscrow transactions allow you to record, deposit, and withdraw transactions for your Escrow Buckets within LoanPro. Here's what you need to know about this request:\n\n- The `EscrowTransactions` object is nested within the `Loans` entity, and it holds transaction history.\n- Escrow Calculators use Escrow Buckets. You will need to create one before adding a calculator, but you can do so [via the API](https://loanpro.readme.io/reference/edit-escrow-subset-optionsescrow-settings)\n    \n\nFor an example of how escrow transactions work within the UI, take a look at our [Create a New Escrow Transaction](https://help.loanpro.io/article/p61kwl1ta9-create-a-new-escrow-transaction) article on our help site.\n\n## Database\n\nFor information on escrow transaction database tables, see the following articles:\n\n- [Database – Escrow Transaction (escrow_transaction_entity)](https://help.loanpro.io/article/zfuddm6wwr-escrow-transaction-entity-escrow-transaction)\n- [Database – Escrow Transaction Category (escrow_tx_category_entity)](https://help.loanpro.io/article/dw60wovzos-escrow-tx-category-entity-escrow-transaction-category)\n- [Database – Escrow Transaction Metadata (escrow__transactions)](https://help.loanpro.io/article/1bqsudhoqw-escrow-transactions-escrow-transaction-metadata)"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Loan Custom Field Values",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Autopal-Instance-Id",
+						"value": "{{TenantID}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer MjAyMjA5MDFUMjEwNjI0Wmlsb3ZlbG9hbnByb3Nkb2NzQGxvYW5wcm8uaW8=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"CustomFieldValues\": {\r\n          \"results\": [\r\n               {\r\n                    \"id\": {{CustomFieldID}},\r\n                    \"customFieldValue\": \"500.00\",\r\n                    \"__id\": {{CustomFieldID}},\r\n                    \"__update\": true\r\n               }\r\n          ]\r\n     }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/odata.svc/Loans({{LoanID}})",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"odata.svc",
+						"Loans({{LoanID}})"
+					]
+				},
+				"description": "## General\n\nCustom fields are used by lenders to track information that's important to their business practices but isn't native to LoanPro. Here's what you need to know about this request:\n\n- The `CustomFieldValues` object holds custom field information, and it's nested within the `Loans` entity.\n- This request updates only the value of the custom field—not the custom field itself. To update the settings of a custom field, you will need to send an [Edit Custom Field](https://loanpro.readme.io/reference/edit-custom-field) request.\n    \n\nFor an example of how custom fields work within the UI, take a look at our [Using Custom Fields](https://help.loanpro.io/article/culdgz93qd-using-custom-fields) article.\n\n## Database\n\nFor information on customer and custom field database tables, see the following articles:\n\n- [Database – Custom Field Entity (custom_field)](https://help.loanpro.io/article/hu7uieti6d-custom-field-custom-field-entity)\n- [Database – Custom Field to Entity Map (custom_field__entity)](https://help.loanpro.io/article/urjdpuddon-custom-field-entity-custom-field-to-entity-map)\n- [Database – Loan Table (loan_entity)](https://help.loanpro.io/article/kx0h7nu3k9-database-loan-table-loan-entity)"
+			},
+			"response": []
+		}
+	]
+}
